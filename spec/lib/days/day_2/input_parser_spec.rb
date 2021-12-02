@@ -2,7 +2,7 @@
 
 require 'days/day_2/input_parser'
 
-describe Day2 do
+RSpec.describe Day2 do
   context 'input parsing' do
     context 'well-formed lines' do
       where(:input, :direction, :distance) do

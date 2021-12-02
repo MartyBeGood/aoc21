@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'tmpdir'
-shared_context :uses_temp_dir do
+RSpec.shared_context :uses_temp_dir do
   around do |testcase|
     Dir.mktmpdir('rspec-') do |tempdir|
       @temp_dir = tempdir

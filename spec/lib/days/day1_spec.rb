@@ -2,7 +2,7 @@
 
 require 'days/day_1'
 
-describe Day1 do
+RSpec.describe Day1 do
   context 'input parsing' do
     it 'should parse well-formed input correctly' do
       input = <<~ENDOFINPUT

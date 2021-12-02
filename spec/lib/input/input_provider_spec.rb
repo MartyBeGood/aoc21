@@ -3,7 +3,7 @@
 require 'input/input_provider'
 require 'uses_temp_dir'
 
-describe InputProvider do
+RSpec.describe InputProvider do
   include_context :uses_temp_dir
   before(:each) do
     Aoc.configure do |config|

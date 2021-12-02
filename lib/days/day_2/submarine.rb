@@ -2,20 +2,21 @@
 
 module Day2
   class Submarine
-    attr_reader :distance, :depth
+    attr_reader :distance, :depth, :aim
 
     def initialize
       @distance = 0
       @depth = 0
+      @aim = 0
     end
 
     def move(*commands)
       commands.each do |command|
         case command.direction
         when :down
-          sink(command.distance)
+          aim_down(command.distance)
         when :up
-          rise(command.distance)
+          aim_up(command.distance)
         when :forward
           propel(command.distance)
         end
@@ -24,16 +25,18 @@ module Day2
 
     private
 
-    def sink(depth)
-      @depth += depth
+    def aim_up(amount)
+      @aim -= amount
     end
 
-    def rise(depth)
-      @depth = [self.depth - depth, 0].max
+    def aim_down(amount)
+      @aim += amount
     end
 
     def propel(distance)
       @distance += distance
+      new_depth = depth + aim * distance
+      @depth = [0, new_depth].max
     end
   end
 end
