@@ -10,7 +10,6 @@ require: []
 domains: []
 reporters:
 - rubocop
-- require_not_found
 formatter:
   rubocop:
     cops: all
@@ -18,7 +17,9 @@ formatter:
     only: []
     extra_args: []
 require_paths:
-  - "lib"
+  - lib
+  - "spec/contexts"
+  - bin
 
 plugins: []
 max_files: 5000

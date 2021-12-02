@@ -11,9 +11,9 @@ describe InputProvider do
     end
   end
   it 'raises exception when config can not be found' do
-    expect {
+    expect do
       InputProvider.get_input_for_day(1)
-    }.to raise_error(InputProvider::InputNotFound)
+    end.to raise_error(InputProvider::InputNotFound)
   end
 
   context 'Local Cache' do

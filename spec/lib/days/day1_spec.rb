@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'day_1'
+require 'days/day_1'
 
 describe Day1 do
   context 'input parsing' do
