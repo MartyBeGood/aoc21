@@ -16,3 +16,7 @@ group :development, :test do
     gem 'ruby-debug-base'
   end
 end
+
+group :test do
+  gem 'webmock'
+end

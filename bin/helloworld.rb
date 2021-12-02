@@ -1,4 +1,6 @@
 # frozen_string_literal: true
 
-mything = 'test'
-puts(mything)
+require_relative('../load_paths')
+require 'lib/default_config'
+
+puts(Aoc.configuration.cache_dir_path)
