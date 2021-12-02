@@ -17,6 +17,7 @@
 
 require_relative '../load_paths'
 prepend_to_load_path(File.join(__dir__, 'contexts'))
+prepend_to_load_path(File.join(__dir__, '..', 'bin'))
 require 'logger'
 require 'webmock/rspec'
 require 'config/aoc'
