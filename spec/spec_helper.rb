@@ -15,6 +15,7 @@
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
 require_relative '../load_paths'
+prepend_to_load_path(File.join(__dir__, 'contexts'))
 require 'webmock/rspec'
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate

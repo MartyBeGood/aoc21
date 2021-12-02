@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'ostruct'
+require 'fileutils'
 # Fancy config module (a.k.a the Singleton)
 module Aoc
   class << self
@@ -10,6 +11,7 @@ module Aoc
 
     def configure
       yield(configuration)
+      create_cache_dir_if_not_exist
     end
 
     def method_missing(method, *_args, &_block)
@@ -21,6 +23,11 @@ module Aoc
     def respond_to_missing?(method_name, *_args)
       !method_name.end_with?('=')
     end
-  end
 
+    def create_cache_dir_if_not_exist
+      return if File.directory?(configuration.cache_dir)
+
+      FileUtils.mkdir_p(configuration.cache_dir)
+    end
+  end
 end

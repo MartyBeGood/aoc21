@@ -4,6 +4,6 @@ require('config/aoc')
 require('logger')
 
 Aoc.configure do |config|
-  config.cache_dir_path = Pathname.new(Dir.pwd).join('cache')
+  config.cache_dir = File.join(Dir.pwd, 'cache')
   config.logger = Logger.new($stdout)
 end
