@@ -22,21 +22,37 @@ describe Day1 do
       expect { Day1.parse_input(input) }.to raise_error(ArgumentError)
     end
   end
+
   context 'increment counting' do
-    it 'should report increase for increasing numbers' do
-      expect(Day1.count_increases([1, 2])).to eq(1)
+    where(:input, :increases) do
+      [
+        [[1, 2], 1],
+        [[1, 2, 3], 2],
+        [[2, 1], 0],
+        [[2, 2], 0]
+      ]
     end
 
-    it 'should report multiple increases for increasing numbers' do
-      expect(Day1.count_increases([1, 2, 3])).to eq(2)
+    with_them do
+      it "#{params[:input]} should show #{params[:increases]} increases" do
+        expect(Day1.count_increases(input)).to eq(increases)
+      end
+    end
+  end
+
+  context 'sliding sum calculation' do
+    where(:array, :window, :sums) do
+      [
+        [[1, 2], 2, [3]],
+        [[1, 2, 3], 2, [3, 5]],
+        [[1, 2, 5, 3], 3, [8, 10]]
+      ]
     end
 
-    it 'should not report increase for decreasing numbers' do
-      expect(Day1.count_increases([2, 1])).to eq(0)
-    end
-
-    it 'should not report increase for same numbers' do
-      expect(Day1.count_increases([2, 2])).to eq(0)
+    with_them do
+      it 'should build sliding sums correctly' do
+        expect(Day1.sliding_sums(array, window)).to eq(sums)
+      end
     end
   end
 end

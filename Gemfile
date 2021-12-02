@@ -20,3 +20,5 @@ end
 group :test do
   gem 'webmock'
 end
+
+gem "rspec-parameterized", "~> 0.5.0"
