@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 require_relative('../load_paths')
-require 'lib/default_config'
+require 'config/default_config'
 
-puts(Aoc.configuration.cache_dir_path)
+Aoc.configure do |config|
+  config.derp = 'foo'
+end
+Aoc.logger.info(Aoc.configuration.cache_dir_path)
+Aoc.logger.info(Aoc.derp)

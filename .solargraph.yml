@@ -17,8 +17,8 @@ formatter:
     except: []
     only: []
     extra_args: []
-require_paths: [
-  "./"
-]
+require_paths:
+  - "lib"
+
 plugins: []
 max_files: 5000
