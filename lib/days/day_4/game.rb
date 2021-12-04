@@ -35,6 +35,10 @@ module Day4
       sequence[@next_index_to_call - 1]
     end
 
+    def steps_left?
+      @next_index_to_call < @sequence.length
+    end
+
     private
 
     def call(number)
