@@ -20,6 +20,26 @@ RSpec.describe Day3::Helpers do
     ]
   end
 
+  describe 'most_common_bit calculations' do
+    context 'should not raise' do
+      where(:input, :expected) do
+        [
+          [[[0], [0], [1]], 0],
+          [[[0], [1], [1]], 1]
+        ]
+      end
+      with_them do
+        it 'should calculate most_common_bit correctly' do
+          expect(Day3::Helpers.most_common_bit(input, 0)).to eq(expected)
+        end
+      end
+    end
+
+    it 'should raise if it is tied' do
+      expect { Day3::Helpers.most_common_bit([[0], [1]], 0) }.to raise_error(Day3::Helpers::TieError)
+    end
+  end
+
   it 'should return an array containing all most common bits' do
     expect(Day3::Helpers.most_common_bits(input)).to eq([1, 0, 1, 1, 0])
   end
@@ -42,5 +62,25 @@ RSpec.describe Day3::Helpers do
 
   it 'should convert a line to a number correctly' do
     expect(Day3::Helpers.bits_to_number(input[0])).to eq(4)
+  end
+
+  it 'should select appropriate lines' do
+    expect(Day3::Helpers.select_by_bit(input[0..1], 0, 1)).to eq([[1, 1, 1, 1, 0]])
+  end
+
+  it 'should find the oxygen_generator_rating_line' do
+    expect(Day3::Helpers.oxygen_generator_rating_line(input)).to eq([1, 0, 1, 1, 1])
+  end
+
+  it 'should return the correct oxygen generator rating' do
+    expect(Day3::Helpers.oxygen_generator_rating(input)).to eq(23)
+  end
+
+  it 'should find the co2 scrubber rating line' do
+    expect(Day3::Helpers.co2_scrubber_rating_line(input)).to eq([0, 1, 0, 1, 0])
+  end
+
+  it 'should return the correct co2 scrubber rating' do
+    expect(Day3::Helpers.co2_scrubber_rating(input)).to eq(10)
   end
 end
