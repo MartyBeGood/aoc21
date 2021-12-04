@@ -29,6 +29,10 @@ RSpec.describe Day4::Board do
   end
 
   context 'marking numbers' do
+    it 'should return the number of marked fields' do
+      expect(board.call(4)).to be(1)
+    end
+
     it 'should mark a called number' do
       board.call(4)
       expect(board.markings).to eq([

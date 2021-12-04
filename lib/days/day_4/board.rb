@@ -12,9 +12,14 @@ module Day4
     end
 
     def call(number)
+      hit_count = 0
       on_every_cell do |row, col|
-        @markings[row][col] = true if numbers[row][col] == number
+        if numbers[row][col] == number
+          @markings[row][col] = true
+          hit_count += 1
+        end
       end
+      hit_count
     end
 
     # Score = sum of all unmarked numbers
