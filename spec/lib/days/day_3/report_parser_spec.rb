@@ -9,7 +9,7 @@ RSpec.describe Day3::ReportParser do
     end
 
     it 'should not raise on equal line lengths' do
-      expect { Day3::ReportParser.verify_same_lengths('22', 'aa') }.to raise_error(ArgumentError)
+      expect { Day3::ReportParser.verify_same_lengths('22', 'aa') }.to_not raise_error(ArgumentError)
     end
   end
 
@@ -27,7 +27,7 @@ RSpec.describe Day3::ReportParser do
     end
 
     it 'should verify binary ints successfully' do
-      expect { Day3::ReportParser.verify_binary_strings("101", "110") }.to_not raise_error
+      expect { Day3::ReportParser.verify_binary_strings('101', '110') }.to_not raise_error
     end
   end
 
