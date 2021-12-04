@@ -21,6 +21,8 @@ prepend_to_load_path(File.join(__dir__, 'contexts'))
 require 'logger'
 require 'webmock/rspec'
 require 'rspec-parameterized'
+require 'simplecov'
+SimpleCov.start
 require 'config/aoc'
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate

@@ -22,3 +22,5 @@ group :test do
 end
 
 gem "rspec-parameterized", "~> 0.5.0"
+
+gem "simplecov", "~> 0.21.2"
