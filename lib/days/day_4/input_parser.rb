@@ -25,7 +25,8 @@ module Day4
     end
     class Parser
       attr_reader :sequence, :boards
-      def read(input)
+
+      def initialize(input)
         blocks = Input.split_into_blocks(input)
         @sequence = Input.sequence_line_to_int_array(blocks[0])
         @boards = blocks.slice(1..blocks.length - 1).map do |block|

@@ -14,6 +14,7 @@ module Day4
     end
 
     def step
+      Aoc.logger.info("Round #{@next_index_to_call + 1}")
       call(sequence[@next_index_to_call])
       @next_index_to_call += 1
     end
@@ -27,7 +28,11 @@ module Day4
     end
 
     def rounds_played
-      next_index_to_call
+      @next_index_to_call
+    end
+
+    def last_number_called
+      sequence[@next_index_to_call - 1]
     end
 
     private
@@ -36,7 +41,7 @@ module Day4
       Aoc.logger.info("Calling number #{number}")
       boards.each_with_index do |board, i|
         fields_hit = board.call(number)
-        Aoc.logger.info("Board #{i} has marked #{fields_hit} fields") if fields_hit.positive?
+        Aoc.logger.debug("Board #{i} has marked #{fields_hit} fields") if fields_hit.positive?
       end
     end
   end
