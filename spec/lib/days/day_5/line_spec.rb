@@ -77,4 +77,32 @@ RSpec.describe Day5::Line do
                                         ])
     end
   end
+
+  context 'diagonal line' do
+    let(:diagonal) { Day5::Line.new(Day5::Point.new(2, 15), Day5::Point.new(0, 17)) }
+
+    it 'should not be diagonal' do
+      expect(diagonal.diagonal?).to be(false)
+    end
+
+    it 'should not be vertical' do
+      expect(diagonal.vertical?).to be(false)
+    end
+
+    it 'should be diagonal' do
+      expect(diagonal.diagonal?).to be(true)
+    end
+
+    it 'should be drawable?' do
+      expect(diagonal.drawable?).to be(true)
+    end
+
+    it 'should give all points' do
+      expect(diagonal.all_points).to eq([
+                                          Day5::Point.new(0, 17),
+                                          Day5::Point.new(1, 16),
+                                          Day5::Point.new(2, 15)
+                                        ])
+    end
+  end
 end
