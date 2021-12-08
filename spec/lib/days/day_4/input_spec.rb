@@ -51,8 +51,7 @@ RSpec.describe Day4::Input do
       21  9
        6 10
     THEFILE
-    parser = Day4::Input::Parser.new
-    parser.read(input)
+    parser = Day4::Input::Parser.new(input)
     expect(parser.sequence).to eq([7, 4, 9, 5, 11, 17, 23, 2])
     expect(parser.boards).to eq([
                                   [

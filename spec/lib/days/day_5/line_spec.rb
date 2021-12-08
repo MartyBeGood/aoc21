@@ -82,7 +82,7 @@ RSpec.describe Day5::Line do
     let(:diagonal) { Day5::Line.new(Day5::Point.new(2, 15), Day5::Point.new(0, 17)) }
 
     it 'should not be diagonal' do
-      expect(diagonal.diagonal?).to be(false)
+      expect(diagonal.diagonal?).to be(true)
     end
 
     it 'should not be vertical' do

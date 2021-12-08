@@ -21,9 +21,9 @@ RSpec.describe Day5::Diagram do
     end
   end
 
-  it 'should not attempt to draw diagonal lines' do
+  it 'should draw diagonal lines' do
     diag.draw(Day5::Line.new(Day5::Point.new(0, 0), Day5::Point.new(1, 1)))
-    expect(diag.value_at(0, 0)).to be(0)
+    expect(diag.value_at(0, 0)).to be(1)
   end
 
   it 'should be able to increase values' do
